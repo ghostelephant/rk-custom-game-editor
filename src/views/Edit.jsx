@@ -28,12 +28,18 @@ const Edit = () => {
       errors, duplicateTerritories
     } = validateData(game);
     if(errors.some(errorData => errorData.hasErrors) || duplicateTerritories.length){
-      return dispatch({
+      dispatch({
         type: "gameErrors",
         gameId,
         errors,
         duplicateTerritories
       });
+      window.scrollTo({
+        top: 100,
+        left: 0,
+        behavior: "smooth"
+      });
+      return;
     }
     // if no errors:
     dispatch({

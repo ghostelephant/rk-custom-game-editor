@@ -1,6 +1,7 @@
 import {useContext} from "react";
 
 import Context from "../context/Context";
+import { textColorFromHex } from "../utils";
 
 const NationForm = ({idx, game, nation, errors, cardClasses}) => {
   const {dispatch} = useContext(Context);
@@ -32,10 +33,11 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
 
   const nationStyle = {};
   if(nation.color){
-    nationStyle.backgroundColor = game.colors.filter(
+    const hex = game.colors.filter(
       color => color.name === nation.color
     )[0]?.hex;
-    nationStyle.color = "white";
+    nationStyle.backgroundColor = hex;
+    nationStyle.color = textColorFromHex(hex)?.textColor;
   }
   
   return (
