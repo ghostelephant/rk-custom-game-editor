@@ -43,7 +43,7 @@ const validateData = ({entries}) => {
     });
 
     // Make sure capitals are owned by their nation
-    nation?.capitals?.split(" ")?.forEach(cap => {
+    nation?.capitals?.split(" ")?.filter(c => c)?.forEach(cap => {
       if(!territories.includes(cap.toUpperCase())){
         errorData.hasErrors = true;
         errorData.errors.capital = "This nation has a capital that is not in its territory list";
