@@ -42,9 +42,10 @@ const Edit = () => {
       clear: true
     });
     navigate(`${urlBase}/json/${gameId}`);
+    window.scrollTo(0, 0);
   };
 
-  const clearErrors = e => {
+  const clearErrors = () => {
     dispatch({
       type: "gameErrors",
       gameId,
