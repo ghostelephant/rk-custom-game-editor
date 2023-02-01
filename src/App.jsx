@@ -2,7 +2,7 @@ import materialize from "materialize-css";
 import 'materialize-css/dist/css/materialize.css';
 import {useReducer} from "react";
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route
 } from "react-router-dom";
@@ -12,7 +12,7 @@ import {Edit, Home, GameJSON} from "./views";
 import {Header} from "./components";
 import {gameReducer} from "./reducers";
 
-const urlBase = "/rk-custom-game-editor";
+const urlBase = "";
 
 function App() {
   materialize.AutoInit();
@@ -43,7 +43,7 @@ function App() {
         storeGames,
         urlBase
       }}>
-        <BrowserRouter>
+        <HashRouter>
           <Header urlBase={urlBase} />       
 
           <Routes>
@@ -68,7 +68,7 @@ function App() {
             />
 
           </Routes>  
-        </BrowserRouter>
+        </HashRouter>
       </Context.Provider>
     </div>
   );
