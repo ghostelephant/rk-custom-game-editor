@@ -12,7 +12,9 @@ import {validateData} from "../utils";
 
 const Edit = () => {
   const {
-    urlBase, games, dispatch
+    urlBase,
+    dispatch,
+    state: {games},
   } = useContext(Context);
   const navigate = useNavigate();
   const {gameId} = useParams();

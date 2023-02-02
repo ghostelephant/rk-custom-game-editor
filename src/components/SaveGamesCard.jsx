@@ -2,7 +2,10 @@ import {useContext} from "react";
 import Context from "../context/Context";
 
 const SaveGamesCard = () => {
-  const {storeGames} = useContext(Context);
+  const {
+    dispatch,
+    state: {saved}
+  } = useContext(Context);
   return (
     <div className="col s12 m10 l6 offset-m1 offset-l3">
       <div className="card purple lighten-4">
@@ -32,7 +35,10 @@ const SaveGamesCard = () => {
             <span
               className="purple darken-2 btn waves-effect waves-light"
               style={{marginBottom: "5px"}}
-              onClick={storeGames.save}
+              onClick={() => dispatch({
+                type: "saveGames"
+              })}
+              disabled={saved}
             >
               <i className="material-icons left">save</i>
               Save Progress
@@ -41,7 +47,9 @@ const SaveGamesCard = () => {
             <span
               className="red darken-2 btn waves-effect waves-light"
               style={{marginBottom: "5px"}}
-              onClick={storeGames.unsave}
+              onClick={() => dispatch({
+                type: "unsaveGames"  
+              })}
             >
               <i className="material-icons left">eject</i>
               Clear Memory

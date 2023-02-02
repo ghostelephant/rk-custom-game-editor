@@ -7,7 +7,10 @@ import { SaveGamesCard } from "../components";
 
 const GameJSON = () => {
   const {gameId} = useParams();
-  const {games, urlBase} = useContext(Context);
+  const {
+    state: {games},
+    urlBase
+  } = useContext(Context);
   const game = games.filter(game => game.id === gameId)[0];
   const jsonString = createJSON(game);
 

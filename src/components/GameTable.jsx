@@ -5,7 +5,7 @@ import Context from "../context/Context";
 
 const GameTable = () => {
   const {
-    games, dispatch, urlBase
+    state, dispatch, urlBase
   } = useContext(Context);
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const GameTable = () => {
       </thead>
       <tbody>
 
-        {games.map(game => 
+        {state?.games?.map(game => 
           <tr key={game.id}>
             <td
               onClick={() => {

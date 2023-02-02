@@ -1,7 +1,7 @@
 import {useContext} from "react";
 
 import Context from "../context/Context";
-import { textColorFromHex } from "../utils";
+import {textColorFromHex} from "../utils";
 
 const NationForm = ({idx, game, nation, errors, cardClasses}) => {
   const {dispatch} = useContext(Context);

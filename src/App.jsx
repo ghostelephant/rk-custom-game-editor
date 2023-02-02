@@ -17,30 +17,21 @@ const urlBase = "";
 function App() {
   materialize.AutoInit();
 
-  const savedGames = localStorage.getItem("rk_games");
-  const [games, dispatch] = useReducer(
-    gameReducer,
-    savedGames ? JSON.parse(savedGames) : []
-  );
-
-  const storeGames = {
-    save: () => {
-      localStorage.setItem(
-        "rk_games",
-        JSON.stringify(games)
-      );
-    },
-    unsave: () => {
-      localStorage.removeItem("rk_games");
-    }
+  const savedGames = localStorage.getItem("rk_games") || "[]";
+  const initialState = {
+    games: JSON.parse(savedGames),
+    saved: true
   };
+  const [state, dispatch] = useReducer(
+    gameReducer,
+    initialState
+  );
 
   return (
     <div className="App">
       <Context.Provider value={{
-        games,
+        state,
         dispatch,
-        storeGames,
         urlBase
       }}>
         <HashRouter>
