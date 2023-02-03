@@ -17,10 +17,11 @@ const urlBase = "";
 function App() {
   materialize.AutoInit();
 
-  const savedGames = localStorage.getItem("rk_games") || "[]";
+  const savedGames = localStorage.getItem("rk_games");
   const initialState = {
-    games: JSON.parse(savedGames),
-    saved: true
+    games: JSON.parse(savedGames || "[]"),
+    saved: true,
+    isStored: !!savedGames
   };
   const [state, dispatch] = useReducer(
     gameReducer,

@@ -114,13 +114,15 @@ const gameReducer = (state, action) => {
         JSON.stringify(state.games)
       );
       return {...state,
-        saved: true
+        saved: true,
+        isStored: true
       };
 
     case "unsaveGames":
       localStorage.removeItem("rk_games");
       return {...state,
-        saved: false
+        saved: false,
+        isStored: false
       };
       
     default:

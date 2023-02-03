@@ -4,7 +4,7 @@ import Context from "../context/Context";
 const SaveGamesCard = () => {
   const {
     dispatch,
-    state: {saved}
+    state: {saved, isStored}
   } = useContext(Context);
   return (
     <div className="col s12 m10 l6 offset-m1 offset-l3">
@@ -50,6 +50,7 @@ const SaveGamesCard = () => {
               onClick={() => dispatch({
                 type: "unsaveGames"  
               })}
+              disabled={!isStored}
             >
               <i className="material-icons left">eject</i>
               Clear Memory
