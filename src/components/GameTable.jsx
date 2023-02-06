@@ -2,10 +2,13 @@ import {useContext} from "react";
 import {useNavigate} from "react-router-dom";
 
 import Context from "../context/Context";
+import {createId} from "../utils";
 
 const GameTable = () => {
   const {
-    state, dispatch, urlBase
+    state: {games},
+    dispatch,
+    urlBase
   } = useContext(Context);
   const navigate = useNavigate();
 
@@ -20,7 +23,7 @@ const GameTable = () => {
       </thead>
       <tbody>
 
-        {state?.games?.map(game => 
+        {games?.map(game => 
           <tr key={game.id}>
             <td
               onClick={() => {
@@ -51,7 +54,10 @@ const GameTable = () => {
           <td>
             <button
               className="btn waves-effect waves-light purple darken-2"
-              onClick={() => dispatch({type: "addGame"})}
+              onClick={() => dispatch({
+                type: "addGame",
+                gameId: createId(games)
+              })}
             >
               <i className="material-icons right">add_box</i>
               Create Game

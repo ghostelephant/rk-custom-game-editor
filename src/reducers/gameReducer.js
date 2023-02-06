@@ -1,4 +1,3 @@
-import {createId} from "../utils";
 import {colorData} from "../static/data";
 
 const gameReducer = (state, action) => {
@@ -10,7 +9,7 @@ const gameReducer = (state, action) => {
   switch(action.type){
     case "addGame":
       const newGame = {
-        id: createId(state.games),
+        id: action.gameId,
         name: "Untitled Game",
         entries: [],
         colors: colorData.map(color => ({
