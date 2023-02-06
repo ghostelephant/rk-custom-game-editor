@@ -77,7 +77,8 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
             >
               Nation Name
             </label>
-            <input
+            <textarea
+              className="materialize-textarea"
               type="text"
               id={`nationName${idx}`}
               name={"nationName"}
@@ -94,7 +95,8 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
             >
               Player Discord ID
             </label>
-            <input
+            <textarea
+              className="materialize-textarea"
               type="text"
               id={`playerId${idx}`}
               name={"playerId"}
@@ -118,8 +120,7 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
               name="capitals"
               onChange={handleChange}
               value={nation?.capitals}
-            >
-            </textarea>
+            />
             
           </div>
 
@@ -130,7 +131,8 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
             >
               Territories
             </label>
-            <input
+            <textarea
+              className="materialize-textarea"
               type="text"
               id={`territories${idx}`}
               name={"territories"}
