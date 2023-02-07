@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 import Context from "../context/Context";
 import {createId} from "../utils";
@@ -18,7 +18,7 @@ const GameTable = () => {
         <tr>
           <th>Game (click to edit)</th>
           <th>Nations</th>
-          <th>Actions</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -31,18 +31,25 @@ const GameTable = () => {
               }}
               style={{cursor: "pointer"}}
             >
-              {game?.name || `Untitled game (${game.id})`}
+              <Link
+                to={`${urlBase}/edit/${game.id}`}
+                tabIndex={0}
+              >
+                {game?.name || `Untitled game (${game.id})`}    
+              </Link>
             </td>
             <td>
               {game.entries?.length}
             </td>
             <td>
               <button
-                className="btn waves-effect waves-dark red darken-2"
+                className="btn waves-effect waves-dark red darken-2 grey-text text-lighten-2"
                 onClick={() => dispatch({
                   type: "deleteGame",
                   gameId: game.id
                 })}
+                onFocus={e => e.target.className="btn waves-effect waves-dark red"}
+                onBlur={e => e.target.className="btn waves-effect waves-dark red darken-2 grey-text text-lighten-2"}
               >
                 <i className="material-icons">delete</i>
               </button>
@@ -54,14 +61,31 @@ const GameTable = () => {
           <td>
             <button
               className="btn waves-effect waves-light purple darken-2"
-              onClick={() => dispatch({
-                type: "addGame",
-                gameId: createId(games)
-              })}
+              onClick={() => {
+                const newGameId = createId(games);
+                dispatch({
+                  type: "addGame",
+                  gameId: newGameId
+                });
+                navigate(`${urlBase}/edit/${newGameId}`);
+              }}
+              onFocus={e => e.target.className="btn waves-effect waves-light purple"}
+              onBlur={e => e.target.className="btn waves-effect waves-light purple darken-2"}
             >
               <i className="material-icons right">add_box</i>
-              Create Game
+              Create New Game
+              {/* New Game From Scratch */}
             </button>
+            {/* &nbsp; &nbsp;
+            <button
+              className="btn waves-effect waves-light purple darken-2"
+              onClick={e => console.log(e)}
+              onFocus={e => e.target.className="btn waves-effect waves-light purple"}
+              onBlur={e => e.target.className="btn waves-effect waves-light purple darken-2"}
+            >
+              <i className="material-icons right">add_box</i>
+              New Game From JSON
+            </button> */}
           </td>
         </tr>
       </tbody>

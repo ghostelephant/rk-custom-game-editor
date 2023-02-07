@@ -66,6 +66,7 @@ const Edit = () => {
       <p className="col s12">
         <Link
           to={`${urlBase}/`}
+          tabIndex={0}
         >
           « Back to home
         </Link>

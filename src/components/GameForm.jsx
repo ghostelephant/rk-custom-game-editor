@@ -36,6 +36,7 @@ const GameForm = ({game, handleSubmit}) => {
         Add New Nation
       </p>
       <button
+        type="button"
         onClick={e => {
           e.preventDefault();
           dispatch({
@@ -83,7 +84,7 @@ const GameForm = ({game, handleSubmit}) => {
     >
       <div className="input-field col s12">
         <input
-          type="text"
+          className="materialize-textarea"
           id="name"
           name="name"
           value={game.name}
@@ -109,7 +110,6 @@ const GameForm = ({game, handleSubmit}) => {
 
       <div className="row center">
         <button
-          type="submit"
           className="btn waves-effect waves-light purple darken-2"
         >
           <i className="material-icons left">code</i>

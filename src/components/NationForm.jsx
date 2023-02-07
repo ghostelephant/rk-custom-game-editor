@@ -77,8 +77,7 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
             >
               Nation Name
             </label>
-            <textarea
-              className="materialize-textarea"
+            <input
               type="text"
               id={`nationName${idx}`}
               name={"nationName"}
@@ -95,8 +94,7 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
             >
               Player Discord ID
             </label>
-            <textarea
-              className="materialize-textarea"
+            <input
               type="text"
               id={`playerId${idx}`}
               name={"playerId"}
@@ -189,6 +187,7 @@ const NationForm = ({idx, game, nation, errors, cardClasses}) => {
           className="card-action"
         >
           <button
+            type="button"
             className="btn red darken-2 waves-effect waves-light"
             onClick={deleteNation}
           >

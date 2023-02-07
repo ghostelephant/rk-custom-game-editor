@@ -33,7 +33,8 @@ function App() {
       <Context.Provider value={{
         state,
         dispatch,
-        urlBase
+        urlBase,
+        materialize
       }}>
         <HashRouter>
           <Header urlBase={urlBase} />       
