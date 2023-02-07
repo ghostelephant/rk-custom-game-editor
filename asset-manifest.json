@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/rk-custom-game-editor/static/css/main.92b69cfb.css",
-    "main.js": "/rk-custom-game-editor/static/js/main.04a03f17.js",
+    "main.js": "/rk-custom-game-editor/static/js/main.0b0fbf90.js",
     "static/js/787.e1e74f81.chunk.js": "/rk-custom-game-editor/static/js/787.e1e74f81.chunk.js",
     "static/media/blemmye.png": "/rk-custom-game-editor/static/media/blemmye.557d2e6b5417693af853.png",
     "index.html": "/rk-custom-game-editor/index.html",
     "main.92b69cfb.css.map": "/rk-custom-game-editor/static/css/main.92b69cfb.css.map",
-    "main.04a03f17.js.map": "/rk-custom-game-editor/static/js/main.04a03f17.js.map",
+    "main.0b0fbf90.js.map": "/rk-custom-game-editor/static/js/main.0b0fbf90.js.map",
     "787.e1e74f81.chunk.js.map": "/rk-custom-game-editor/static/js/787.e1e74f81.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92b69cfb.css",
-    "static/js/main.04a03f17.js"
+    "static/js/main.0b0fbf90.js"
   ]
 }
